@@ -37,11 +37,11 @@ This repo contains small [examples](#examples) that show individual features, as
 
 ## Apps
 
-[Count word frequencies](./apps/wordfreq/main.go) by @serge-hulne
+[Count word frequencies](./apps/wordfreq/main.go) by [serge-hulne](https://github.com/serge-hulne)
 
 [Curl interop](./apps/curl/main.go)
 
-[FreeSWITCH module](https://github.com/rts-cn/mod_solod) by @seven1240
+[FreeSWITCH module](https://github.com/rts-cn/mod_solod) by [seven1240](https://github.com/seven1240)
 
 [Reverse lines in file](./apps/reverse/main.go)
 
