@@ -1,33 +1,32 @@
-// So supports _constants_ of character, string, boolean,
-// and numeric values.
+// So supports constants of character, string,
+// boolean, and numeric values.
 package main
 
-import (
-	"solod.dev/so/math"
-)
+import "solod.dev/so/math"
 
 // `const` declares a constant value.
 const s string = "constant"
 
 func main() {
-	println(s)
+	println("s =", s)
 
-	// A `const` statement can also appear inside a
-	// function body.
+	// You can also declare a constant inside a function.
 	const n = 500000000
 
-	// Constant expressions perform arithmetic with
-	// arbitrary precision.
+	const ch = 'a'
+	println("ch =", ch) // 97 - the ASCII code for 'a'
+
+	// Constant expressions perform arithmetic.
+	// This only works for constants declared inside functions.
 	const d = 3e20 / n
-	println(d)
+	println("d =", d)
 
-	// A numeric constant has no type until it's given
-	// one, such as by an explicit conversion.
-	println(int64(d))
+	// Integer constants are `int` by default, but
+	// you can cast them to another compatible type.
+	println("int64(d) =", int64(d))
 
-	// A number can be given a type by using it in a
-	// context that requires one, such as a variable
-	// assignment or function call. For example, here
-	// `math.Sqrt` expects a `float64`.
-	println(math.Sqrt(n))
+	// The compiler will automatically convert to
+	// a compatible type if possible. For example,
+	// `math.Sqrt` expects a `float64` here.
+	println("math.Sqrt(n) =", math.Sqrt(n))
 }

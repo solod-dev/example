@@ -1,9 +1,9 @@
-// `for` is So's only looping construct. Here are
-// some basic types of `for` loops.
+// `for` is the only kind of loop in So.
+// Here are some examples of how to use it.
 package main
 
 func main() {
-	// The most basic type, with a single condition.
+	// The most basic kind, with a single condition.
 	i := 1
 	for i <= 3 {
 		println(i)
@@ -11,26 +11,31 @@ func main() {
 	}
 
 	// A classic initial/condition/after `for` loop.
-	for j := 0; j < 3; j++ {
+	for j := 7; j <= 9; j++ {
 		println(j)
 	}
 
-	// Another way of accomplishing the basic "do this
-	// N times" iteration is `range` over an integer.
-	for i := range 3 {
-		println("range", i)
+	// Loop from 0 to n-1 (range over integers).
+	const n = 10
+	for i := range n {
+		print(i)
 	}
+	println()
 
-	// `for` without a condition will loop repeatedly
-	// until you `break` out of the loop or `return` from
-	// the enclosing function.
+	// Range also works without a loop variable, if you don't need it.
+	for range n {
+		print(".")
+	}
+	println()
+
+	// Infinite loop runs until a `break`` statement exits the loop
+	// or a `return` statement exits the function.
 	for {
 		println("loop")
 		break
 	}
 
-	// You can also `continue` to the next iteration of
-	// the loop.
+	// `continue` jumps  to the next iteration of the loop.
 	for n := range 6 {
 		if n%2 == 0 {
 			continue

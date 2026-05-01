@@ -1,30 +1,24 @@
-// _Functions_ are central in So. We'll learn about
+// Functions are central in So. We'll learn about
 // functions with a few different examples.
 package main
 
 // Here's a function that takes two `int`s and returns
 // their sum as an `int`.
-func plus(a int, b int) int {
-	// So requires explicit returns, i.e. it won't
-	// automatically return the value of the last
-	// expression.
+func sum2(a int, b int) int {
 	return a + b
 }
 
-// When you have multiple consecutive parameters of
-// the same type, you may omit the type name for the
-// like-typed parameters up to the final parameter that
-// declares the type.
-func plusPlus(a, b, c int) int {
+// When you have several parameters in a row with the same type,
+// you can leave out the type name for all but the last one.
+// Just include the type with the final parameter.
+func sum3(a, b, c int) int {
 	return a + b + c
 }
 
 func main() {
-	// Call a function just as you'd expect, with
-	// `name(args)`.
-	res := plus(1, 2)
+	res := sum2(1, 2)
 	println("1+2 =", res)
 
-	res = plusPlus(1, 2, 3)
+	res = sum3(1, 2, 3)
 	println("1+2+3 =", res)
 }

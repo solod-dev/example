@@ -1,7 +1,6 @@
-// A `panic` typically means something went unexpectedly
-// wrong. Mostly we use it to fail fast on errors that
-// shouldn't occur during normal operation, or that we
-// aren't prepared to handle gracefully.
+// A panic typically means something went unexpectedly wrong.
+// We use it to fail fast on errors that shouldn't occur during
+// normal operation, or that we aren't prepared to handle gracefully.
 package main
 
 import "solod.dev/so/errors"
@@ -16,10 +15,9 @@ func work(n int) (int, error) {
 }
 
 func main() {
-	// A common use of panic is to abort if a function
-	// returns an error value that we don't know how to
-	// (or want to) handle. Here's an example of
-	// panicking if we get an unexpected error.
+	// A common use of panic is to abort if a function returns an
+	// error value that we don't know how to (or want to) handle.
+	// Here we panic if work returns an error.
 	n, err := work(42)
 	if err != nil {
 		panic(err)

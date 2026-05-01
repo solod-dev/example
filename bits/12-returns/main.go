@@ -1,6 +1,6 @@
-// So has a limited support for _multiple return values_.
-// This feature can only be used to return both result
-// and error values from a function.
+// So has a limited support for multiple return values.
+// This feature can be used to return two results (T1, T1)
+// or a result and an error (T, error) from a function.
 package main
 
 // The `(int, error)` in this function signature shows that
@@ -11,15 +11,14 @@ func vals() (int, error) {
 
 func main() {
 	// Here we use the 2 different return values from the
-	// call with _multiple assignment_.
+	// call with multiple assignment.
 	v, err := vals()
-	println("v =", v)
-	if err != nil {
-		panic(err)
-	}
+	println("v =", v, "err =", err)
 
 	// If you only want a subset of the returned values,
 	// use the blank identifier `_`.
 	v, _ = vals()
 	println("v =", v)
+	_, err = vals()
+	println("err =", err)
 }

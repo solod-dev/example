@@ -1,11 +1,12 @@
-// So supports _methods_ defined on struct types.
+// Methods add behavior to struct types.
 package main
 
+// rect represents a rectangle figure.
 type rect struct {
 	width, height int
 }
 
-// This `area` method has a _receiver type_ of `*rect`.
+// This `area` method has a receiver type of `*rect`.
 func (r *rect) area() int {
 	return r.width * r.height
 }
@@ -19,16 +20,15 @@ func (r rect) perim() int {
 func main() {
 	r := rect{width: 10, height: 5}
 
-	// Here we call the 2 methods defined for our struct.
-	println("area: ", r.area())
-	println("perim:", r.perim())
+	// Call methods defined on `rect`.
+	println("area =", r.area()) // same as (&r).area()
+	println("perim =", r.perim())
 
-	// So automatically handles conversion between values
-	// and pointers for method calls. You may want to use
-	// a pointer receiver type to avoid copying on method
-	// calls or to allow the method to mutate the
-	// receiving struct.
+	// So automatically converts between values and pointers when
+	// calling methods. You might want to use a pointer receiver
+	// to avoid copying the struct when calling methods or to let
+	// the method change the struct.
 	rp := &r
-	println("area: ", rp.area())
-	println("perim:", rp.perim())
+	println("area =", rp.area())
+	println("perim =", rp.perim()) // same as (*rp).perim()
 }

@@ -1,7 +1,5 @@
-// In So, an _array_ is a numbered sequence of elements of a
-// specific length. In typical So code, _slices_ are
-// much more common; arrays are useful in some special
-// scenarios.
+// In So, an array is a numbered sequence of elements
+// of a specific, fixed length.
 package main
 
 import "solod.dev/so/fmt"
@@ -12,20 +10,17 @@ func main() {
 	// part of the array's type. By default an array is
 	// zero-valued, which for `int`s means `0`s.
 	var a [3]int32
-	printArray("emp:", a)
+	printArray("empty:", a)
 
-	// We can set a value at an index using the
-	// `array[index] = value` syntax, and get a value with
-	// `array[index]`.
+	// You can access an array element using square brackets.
 	a[2] = 100
-	printArray("set:", a)
-	println("get:", a[2])
+	printArray("set[2]:", a)
+	println("get[2]:", a[2])
 
-	// The builtin `len` returns the length of an array.
+	// The `len` builtin returns the length of an array.
 	println("len:", len(a))
 
-	// Use this syntax to declare and initialize an array
-	// in one line.
+	// You can declare and initialize an array in one line.
 	b := [3]int32{1, 2, 3}
 	printArray("dcl:", b)
 

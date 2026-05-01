@@ -1,11 +1,7 @@
-// In So it's idiomatic to communicate errors via an
-// explicit, separate return value. This contrasts with
-// the exceptions used in languages like Java, Python and
-// Ruby and the overloaded single result / error value
-// sometimes used in C. So's approach makes it easy to
-// see which functions return errors and to handle them
-// using the same language constructs employed for other,
-// non-error tasks.
+// In So it's idiomatic to communicate errors via an explicit,
+// separate return value. This approach makes it easy to see which
+// functions return errors and to handle them using the same language
+// constructs employed for other, non-error tasks.
 package main
 
 import "solod.dev/so/errors"
@@ -46,10 +42,10 @@ func main() {
 	for _, i := range s {
 		// It's idiomatic to use an inline
 		// error check in the `if` line.
-		if r, e := f(i); e != nil {
-			println("f failed:", e)
+		if res, err := f(i); err != nil {
+			println("f failed:", err)
 		} else {
-			println("f worked:", r)
+			println("f worked:", res)
 		}
 	}
 
@@ -57,7 +53,7 @@ func main() {
 		if err := makeTea(i); err != nil {
 			// Since So only supports sentinel errors,
 			// they are compared with a simple pointer equality check.
-			// No errors.Is or errors.As needed (or supported).
+			// No `errors.Is` or `errors.As` needed (or supported).
 			if err == ErrOutOfTea {
 				println("We should buy new tea!")
 			} else if err == ErrPower {

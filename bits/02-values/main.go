@@ -1,18 +1,23 @@
-// So has various value types including strings,
-// integers, floats, booleans, etc. Here are a few
-// basic examples.
+// So supports different value types like strings,
+// integers, floats, booleans, and more.
+// Here are a few simple examples.
 package main
 
 func main() {
-	// Strings.
-	println("so is awesome")
-
 	// Integers and floats.
 	println("1+1 =", 1+1)
-	println("7.0/3.0 =", 7.0/3.0)
+	println("5.0/2.0 =", 5.0/2.0)
 
-	// Booleans, with boolean operators as you'd expect.
+	// Booleans and boolean operators.
 	println(true && false)
 	println(true || false)
 	println(!true)
+
+	// Strings.
+	println("so is awesome")
+
+	// You can concatenate strings with the + operator.
+	// Don't do that for large strings,
+	// because the result is stack-allocated.
+	println("so " + "is " + "awesome")
 }

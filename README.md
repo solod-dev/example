@@ -6,19 +6,21 @@ This repo contains small [examples](#examples) that show individual features, as
 
 ## Examples
 
-[Hello world](./bits/01-hello-world/main.go) •
+Language:
+
+[Hello world](./bits/01-hello/main.go) •
 [Values](./bits/02-values/main.go) •
 [Variables](./bits/03-variables/main.go) •
 [Constants](./bits/04-constants/main.go) •
 [For](./bits/05-for/main.go) •
 [If/else](./bits/06-if-else/main.go) •
+[Switch](./bits/07-switch/main.go) •
 [Arrays](./bits/08-arrays/main.go) •
 [Slices](./bits/09-slices/main.go) •
 [Maps](./bits/10-maps/main.go) •
 [Functions](./bits/11-functions/main.go) •
 [Multiple returns](./bits/12-returns/main.go) •
 [Variadic functions](./bits/13-variadics/main.go) •
-[Recursion](./bits/15-recursion/main.go) •
 [For-range](./bits/16-range/main.go) •
 [Pointers](./bits/17-pointers/main.go) •
 [Strings and runes](./bits/18-strings/main.go) •
@@ -28,7 +30,10 @@ This repo contains small [examples](#examples) that show individual features, as
 [Enums](./bits/22-enums/main.go) •
 [Errors](./bits/26-errors/main.go) •
 [Panic](./bits/27-panic/main.go) •
-[Defer](./bits/28-defer/main.go) •
+[Defer](./bits/28-defer/main.go)
+
+Standard library:
+
 [Memory](./bits/51-memory/main.go) •
 [C interop](./bits/52-interop/main.go) •
 [Strings](./bits/53-strings/main.go) •

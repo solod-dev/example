@@ -1,31 +1,41 @@
-// In So, _variables_ are explicitly declared and used by
-// the compiler to e.g. check type-correctness of function
-// calls.
+// So is statically typed. Variables are declared explicitly,
+// and their types are known to the compiler.
 package main
 
 func main() {
-	// `var` declares 1 or more variables.
-	var a = "initial"
-	println(a)
+	// `var` declares a variable, and `=` assigns it a specific value:
+	var b bool = true
+	println("b =", b)
+
+	var s string = "hello"
+	println("s =", s)
+
+	var i int = 42
+	println("i =", i)
+
+	var f float64 = 12.34
+	println("f =", f)
 
 	// You can declare multiple variables at once.
-	var b, c int = 1, 2
-	println(b, c)
+	var one, two int = 1, 2
+	println(one, two)
 
-	// Go will infer the type of initialized variables.
-	var d = true
-	println(d)
+	// So will infer the type of initialized variables.
+	var sunny = true // inferred as `bool`
+	println("sunny =", sunny)
 
-	// Variables declared without a corresponding
-	// initialization are _zero-valued_. For example, the
-	// zero value for an `int` is `0`.
-	var e int
-	println(e)
+	// Если не инициализировать переменную при объявлении, она получит нулевое значение (zero value). У каждого типа оно свое: int — 0, string — "", bool — false.
 
-	// The `:=` syntax is shorthand for declaring and
-	// initializing a variable, e.g. for
-	// `var f string = "apple"` in this case.
-	// This syntax is only available inside functions.
-	f := "apple"
-	println(f)
+	// If you don't initialize a variable when you declare it,
+	// it gets a zero value. Each type has its own: int is 0,
+	// string is "", and bool is false.
+	var num int
+	var str string
+	var ok bool
+	println("num =", num, "str =", str, "ok =", ok)
+
+	// The := operator declares and initializes a variable.
+	// You don't need to specify `var` or the type.
+	food := "apple" // var food string = "apple"
+	println("food =", food)
 }
