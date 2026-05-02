@@ -34,11 +34,23 @@ Language:
 
 Standard library:
 
-[Memory](./bits/51-memory/main.go) •
-[C interop](./bits/52-interop/main.go) •
-[Strings](./bits/53-strings/main.go) •
-[Time](./bits/54-time/main.go) •
-[Files](./bits/55-files/main.go)
+[Memory](stdlib/01-memory/main.go) •
+[Slices](stdlib/02-slices/main.go) •
+[Maps](stdlib/03-maps/main.go) •
+[C interop](stdlib/04-interop/main.go) •
+[Strings](stdlib/11-strings/main.go) •
+[Time](stdlib/12-time/main.go) •
+[Random numbers](stdlib/13-rand/main.go) •
+[Number parsing](stdlib/14-strconv/main.go) •
+[Reading files](stdlib/15-read-files/main.go) •
+[Writing files](stdlib/16-write-files/main.go) •
+[Scanning](stdlib/17-scanners/main.go) •
+[File paths](stdlib/18-paths/main.go) •
+[Directories](stdlib/19-dirs/main.go) •
+[Temp files](stdlib/20-temp/main.go) •
+[Command line](stdlib/21-flags/main.go) •
+[Env variables](stdlib/22-env/main.go) •
+[Logging](stdlib/23-slog/main.go)
 
 ## Apps
 
