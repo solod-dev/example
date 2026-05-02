@@ -54,13 +54,15 @@ Standard library:
 
 ## Apps
 
-[Count word frequencies](./apps/wordfreq/main.go) by [serge-hulne](https://github.com/serge-hulne)
+Coreutils: [cat](apps/cat/main.go), [cut](apps/cut/main.go), [head](apps/head/main.go)
 
-[Curl interop](./apps/curl/main.go)
+[Count word frequencies](apps/wordfreq/main.go) by [serge-hulne](https://github.com/serge-hulne)
+
+[Curl interop](apps/curl/main.go)
 
 [FreeSWITCH module](https://github.com/rts-cn/mod_solod) by [seven1240](https://github.com/seven1240)
 
-[Reverse lines in file](./apps/reverse/main.go)
+[Reverse lines in file](apps/reverse/main.go)
 
 ## Running the code
 
@@ -68,6 +70,10 @@ To run a specific example locally, use the `so run` command. For example:
 
 ```text
 so run lang/05-for
+```
+
+```text
+so run apps/head -n 4 data/jenny.txt
 ```
 
 You'll need to have a C compiler installed and available as `cc`, or you can set a custom compiler by using the `CC` environment variable.
