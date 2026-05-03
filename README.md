@@ -54,7 +54,13 @@ Standard library:
 
 ## Apps
 
-Coreutils: [cat](apps/cat/main.go), [cut](apps/cut/main.go), [head](apps/head/main.go)
+Coreutils:
+[cat](apps/cat/main.go),
+[cut](apps/cut/main.go),
+[head](apps/head/main.go),
+[sort](apps/sort/main.go),
+[uniq](apps/uniq/main.go),
+[wc](apps/wc/main.go)
 
 [Count word frequencies](apps/wordfreq/main.go) by [serge-hulne](https://github.com/serge-hulne)
 

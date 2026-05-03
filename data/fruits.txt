@@ -1,0 +1,9 @@
+apple
+apple
+banana
+banana
+banana
+cherry
+apple
+apple
+plum
