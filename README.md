@@ -68,6 +68,8 @@ Coreutils:
 
 [FreeSWITCH module](https://github.com/rts-cn/mod_solod) by [seven1240](https://github.com/seven1240)
 
+[Key-value store](apps/sqlmap/main.go) with SQLite interop
+
 [Reverse lines in file](apps/reverse/main.go)
 
 ## Running the code
