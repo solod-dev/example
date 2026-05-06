@@ -13,11 +13,19 @@ const sqliteRow = 100
 //so:extern SQLITE_DONE
 const sqliteDone = 101
 
+//so:extern
 type sqlite3 struct{}
+
+//so:extern
 type sqlite3_stmt struct{}
+
+//so:extern
 type sqlite3_value struct{}
 
+//so:extern
 type sqlite3_callback func(any, int32, **c.Char, **c.Char) int32
+
+//so:extern
 type sqlite3_destructor_type func(any)
 
 func sqlite3_open(filename string, ppDb **sqlite3) int32

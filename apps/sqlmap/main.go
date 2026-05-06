@@ -1,37 +1,53 @@
 // A simple key-value store backed by an SQLite database.
-// Run with `LDFLAGS="-lsqlite3" so run apps/sqlmap`.
+// Run with `LDFLAGS="-lsqlite3" so run <args>`.
 package main
 
-import "solod.dev/so/mem"
+import (
+	"solod.dev/so/flag"
+	"solod.dev/so/mem"
+	"solod.dev/so/os"
+)
+
+var (
+	opFlag  string
+	keyFlag string
+	valFlag string
+)
+
+func parseFlags() {
+	flag.StringVar(&opFlag, "op", "", "operation: get, set, or del")
+	flag.StringVar(&keyFlag, "key", "", "key name")
+	flag.StringVar(&valFlag, "val", "", "value (for set operation)")
+	flag.Parse()
+}
 
 func main() {
-	m, err := NewSQLMap(mem.System, ":memory:")
-	if err != nil {
-		panic(err)
-	}
+	parseFlags()
+
+	m, err := NewSQLMap("sqlmap.db")
+	check(err)
 	defer m.Close()
 
-	m.SetString("name", "Alice")
-	m.SetInt("age", 42)
+	switch opFlag {
+	case "set":
+		err = m.SetString(keyFlag, valFlag)
+		check(err)
+	case "get":
+		val, err := m.GetString(mem.System, keyFlag)
+		check(err)
+		println(val)
+		mem.FreeString(mem.System, val)
+	case "del":
+		err = m.Delete(keyFlag)
+		check(err)
+	default:
+		flag.Usage()
+		os.Exit(1)
+	}
+}
 
-	name, err := m.GetString("name")
-	println("name =", name, "err =", err)
-	mem.FreeString(m.Alloc, name)
-	// name = Alice, err = <nil>
-
-	age, err := m.GetInt("age")
-	println("age =", age, "err =", err)
-	// age = 42, err = <nil>
-
-	m.SetString("name", "Bob")
-	name, err = m.GetString("name")
-	println("name =", name, "err =", err)
-	mem.FreeString(m.Alloc, name)
-	// name = Bob, err = <nil>
-
-	m.Delete("name")
-	name, err = m.GetString("name")
-	println("name =", name, "err =", err)
-	mem.FreeString(m.Alloc, name)
-	// name = , err = sqlmap: not found
+func check(err error) {
+	if err != nil && err != ErrNotFound {
+		panic(err)
+	}
 }

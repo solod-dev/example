@@ -24,8 +24,7 @@ const (
 
 // SQLMap is a simple key-value store backed by an SQLite database.
 type SQLMap struct {
-	Alloc mem.Allocator
-	db    *sqlite3
+	db *sqlite3
 }
 
 type SQLMapResult struct {
@@ -34,50 +33,24 @@ type SQLMapResult struct {
 }
 
 // NewSQLMap creates a new SQLMap using the provided connection string.
-// It opens a connection to the SQLite database and  creates the underlying
+// It opens a connection to the SQLite database and creates the underlying
 // key-value table if it does not already exist.
 //
 // The caller is responsible for calling Close on the returned SQLMap
 // when it is no longer needed.
-func NewSQLMap(a mem.Allocator, connStr string) (SQLMap, error) {
+func NewSQLMap(connStr string) (SQLMap, error) {
 	var db *sqlite3
-	errCode := sqlite3_open(connStr, &db)
-	if errCode != 0 {
+	rc := sqlite3_open(connStr, &db)
+	if rc != sqliteOK {
 		return SQLMap{}, ErrCreate
 	}
 
-	rc := sqlite3_exec(db, sqlCreate, nil, nil, nil)
+	rc = sqlite3_exec(db, sqlCreate, nil, nil, nil)
 	if rc != sqliteOK {
 		sqlite3_close(db)
 		return SQLMap{}, ErrCreate
 	}
-	return SQLMap{Alloc: a, db: db}, nil
-}
-
-// Get returns the raw blob value associated with the specified key.
-// The caller owns the returned slice and must free it with mem.FreeSlice.
-func (m *SQLMap) Get(key string) ([]byte, error) {
-	var stmt *sqlite3_stmt
-	rc := sqlite3_prepare_v2(m.db, sqlGet, -1, &stmt, nil)
-	if rc != sqliteOK {
-		return nil, ErrPrepare
-	}
-	defer sqlite3_finalize(stmt)
-
-	sqlite3_bind_text(stmt, 1, key, int32(len(key)), nil)
-	rc = sqlite3_step(stmt)
-	if rc == sqliteDone {
-		return nil, ErrNotFound
-	}
-	if rc != sqliteRow {
-		return nil, ErrExec
-	}
-
-	ptr := sqlite3_column_blob(stmt, 0).(*byte)
-	n := sqlite3_column_bytes(stmt, 0)
-	src := c.Bytes(ptr, int(n))
-	result := slices.Clone(m.Alloc, src)
-	return result, nil
+	return SQLMap{db}, nil
 }
 
 // GetInt returns the integer value associated with the specified key.
@@ -126,7 +99,7 @@ func (m *SQLMap) GetFloat64(key string) (float64, error) {
 
 // GetString returns the string value associated with the specified key.
 // The caller owns the returned string and must free it with mem.FreeString.
-func (m *SQLMap) GetString(key string) (string, error) {
+func (m *SQLMap) GetString(a mem.Allocator, key string) (string, error) {
 	var stmt *sqlite3_stmt
 	rc := sqlite3_prepare_v2(m.db, sqlGet, -1, &stmt, nil)
 	if rc != sqliteOK {
@@ -145,27 +118,34 @@ func (m *SQLMap) GetString(key string) (string, error) {
 
 	text := c.Val[*c.ConstChar]("(const char*)sqlite3_column_text(stmt, 0)")
 	tmp := c.String(text)
-	result := strings.Clone(m.Alloc, tmp)
+	result := strings.Clone(a, tmp)
 	return result, nil
 }
 
-// Set stores a blob value for the specified key.
-func (m *SQLMap) Set(key string, val []byte) error {
+// GetByte returns the raw blob value associated with the specified key.
+// The caller owns the returned slice and must free it with mem.FreeSlice.
+func (m *SQLMap) GetByte(a mem.Allocator, key string) ([]byte, error) {
 	var stmt *sqlite3_stmt
-	rc := sqlite3_prepare_v2(m.db, sqlSet, -1, &stmt, nil)
+	rc := sqlite3_prepare_v2(m.db, sqlGet, -1, &stmt, nil)
 	if rc != sqliteOK {
-		return ErrPrepare
+		return nil, ErrPrepare
 	}
 	defer sqlite3_finalize(stmt)
 
 	sqlite3_bind_text(stmt, 1, key, int32(len(key)), nil)
-	sqlite3_bind_blob(stmt, 2, val, int32(len(val)), nil)
-
 	rc = sqlite3_step(stmt)
-	if rc != sqliteDone {
-		return ErrExec
+	if rc == sqliteDone {
+		return nil, ErrNotFound
 	}
-	return nil
+	if rc != sqliteRow {
+		return nil, ErrExec
+	}
+
+	ptr := sqlite3_column_blob(stmt, 0).(*byte)
+	n := sqlite3_column_bytes(stmt, 0)
+	src := c.Bytes(ptr, int(n))
+	result := slices.Clone(a, src)
+	return result, nil
 }
 
 // SetInt stores an integer value for the specified key.
@@ -217,6 +197,25 @@ func (m *SQLMap) SetString(key string, val string) error {
 
 	sqlite3_bind_text(stmt, 1, key, int32(len(key)), nil)
 	sqlite3_bind_text(stmt, 2, val, int32(len(val)), nil)
+
+	rc = sqlite3_step(stmt)
+	if rc != sqliteDone {
+		return ErrExec
+	}
+	return nil
+}
+
+// SetByte stores a blob value for the specified key.
+func (m *SQLMap) SetByte(key string, val []byte) error {
+	var stmt *sqlite3_stmt
+	rc := sqlite3_prepare_v2(m.db, sqlSet, -1, &stmt, nil)
+	if rc != sqliteOK {
+		return ErrPrepare
+	}
+	defer sqlite3_finalize(stmt)
+
+	sqlite3_bind_text(stmt, 1, key, int32(len(key)), nil)
+	sqlite3_bind_blob(stmt, 2, val, int32(len(val)), nil)
 
 	rc = sqlite3_step(stmt)
 	if rc != sqliteDone {
