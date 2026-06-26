@@ -2,4 +2,4 @@ module example
 
 go 1.26
 
-require solod.dev v0.1.0
+require solod.dev v0.2.0
