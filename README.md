@@ -74,6 +74,8 @@ Coreutils:
 
 [Reverse lines in file](apps/reverse/main.go)
 
+[TCP echo server](apps/echo-server/main.go) and [client](apps/echo-client/main.go).
+
 ## Running the code
 
 To run a specific example locally, use the `so run` command. For example:
