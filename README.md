@@ -2,11 +2,9 @@
 
 A hands-on introduction to [Solod](https://github.com/solod-dev/solod) (So) — a subset of Go that translates to C.
 
-This repo contains small [examples](#examples) that show individual features, as well as larger [apps](#apps) that demonstrate how everything works together.
+This repo contains small examples that show individual [language](#language) and [stdlib](#standard-library) features, as well as larger [apps](#apps) that demonstrate how everything works together.
 
-## Examples
-
-Language:
+## Language
 
 [Hello world](lang/01-hello/main.go) •
 [Values](lang/02-values/main.go) •
@@ -32,25 +30,25 @@ Language:
 [Panic](lang/27-panic/main.go) •
 [Defer](lang/28-defer/main.go)
 
-Standard library:
+## Standard library
 
-[Memory](stdlib/01-memory/main.go) •
-[Slices](stdlib/02-slices/main.go) •
-[Maps](stdlib/03-maps/main.go) •
-[C interop](stdlib/04-interop/main.go) •
-[Strings](stdlib/11-strings/main.go) •
-[Time](stdlib/12-time/main.go) •
-[Random numbers](stdlib/13-rand/main.go) •
-[Number parsing](stdlib/14-strconv/main.go) •
-[Reading files](stdlib/15-read-files/main.go) •
-[Writing files](stdlib/16-write-files/main.go) •
-[Scanning](stdlib/17-scanners/main.go) •
-[File paths](stdlib/18-paths/main.go) •
-[Directories](stdlib/19-dirs/main.go) •
-[Temp files](stdlib/20-temp/main.go) •
-[Command line](stdlib/21-flags/main.go) •
-[Env variables](stdlib/22-env/main.go) •
-[Logging](stdlib/23-slog/main.go)
+[Memory](stdlib/memory/main.go) •
+[C interop](stdlib/interop/main.go) •
+[Slices](stdlib/slices/main.go) •
+[Maps](stdlib/maps/main.go) •
+[Strings](stdlib/strings/main.go) •
+[Time](stdlib/time/main.go) •
+[Random numbers](stdlib/rand/main.go) •
+[Number parsing](stdlib/strconv/main.go) •
+[Reading files](stdlib/read-files/main.go) •
+[Writing files](stdlib/write-files/main.go) •
+[Scanning](stdlib/scanners/main.go) •
+[File paths](stdlib/paths/main.go) •
+[Directories](stdlib/dirs/main.go) •
+[Temp files](stdlib/temp/main.go) •
+[Command line](stdlib/flags/main.go) •
+[Env variables](stdlib/env/main.go) •
+[Logging](stdlib/slog/main.go)
 
 ## Apps
 
