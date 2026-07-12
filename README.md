@@ -2,7 +2,7 @@
 
 A hands-on introduction to [Solod](https://github.com/solod-dev/solod) (So) — a subset of Go that translates to C.
 
-This repo contains small examples that show individual [language](#language) and [stdlib](#standard-library) features, as well as larger [apps](#apps) that demonstrate how everything works together.
+This repo contains small examples that show individual [language](#language) and [stdlib](#standard-library) features, as well as larger [apps](#apps) that demonstrate how everything fits together.
 
 ## Language
 
@@ -40,15 +40,16 @@ This repo contains small examples that show individual [language](#language) and
 [Time](stdlib/time/main.go) •
 [Random numbers](stdlib/rand/main.go) •
 [Number parsing](stdlib/strconv/main.go) •
-[Reading files](stdlib/read-files/main.go) •
-[Writing files](stdlib/write-files/main.go) •
+[Reading files](stdlib/file-read/main.go) •
+[Writing files](stdlib/file-write/main.go) •
 [Scanning](stdlib/scanners/main.go) •
-[File paths](stdlib/paths/main.go) •
-[Directories](stdlib/dirs/main.go) •
-[Temp files](stdlib/temp/main.go) •
+[File paths](stdlib/file-paths/main.go) •
+[Directories](stdlib/file-dirs/main.go) •
+[Temp files](stdlib/file-temp/main.go) •
 [Command line](stdlib/flags/main.go) •
 [Env variables](stdlib/env/main.go) •
-[Logging](stdlib/slog/main.go)
+[Logging](stdlib/logging/main.go) •
+[Exit](stdlib/exit/main.go)
 
 ## Apps
 
