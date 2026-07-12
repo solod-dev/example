@@ -38,6 +38,8 @@ This repo contains small examples that show individual [language](#language) and
 [Maps](stdlib/maps/main.go) •
 [Strings](stdlib/strings/main.go) •
 [Time](stdlib/time/main.go) •
+[Unix time](stdlib/time-unix/main.go) •
+[Time formatting](stdlib/time-format/main.go) •
 [Random numbers](stdlib/rand/main.go) •
 [Number parsing](stdlib/strconv/main.go) •
 [Reading files](stdlib/file-read/main.go) •
