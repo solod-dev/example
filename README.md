@@ -2,7 +2,7 @@
 
 A hands-on introduction to [Solod](https://github.com/solod-dev/solod) (So) — a subset of Go that translates to C.
 
-This repo contains small examples that show individual [language](#language) and [stdlib](#standard-library) features, as well as larger [apps](#apps) that demonstrate how everything fits together.
+This repo contains small examples that show individual [language](#language), [concurrency](#concurrency), and [stdlib](#standard-library) features, as well as larger [apps](#apps) that demonstrate how everything fits together.
 
 ## Language
 
@@ -29,6 +29,20 @@ This repo contains small examples that show individual [language](#language) and
 [Errors](lang/26-errors/main.go) •
 [Panic](lang/27-panic/main.go) •
 [Defer](lang/28-defer/main.go)
+
+## Concurrency
+
+[Threads](conc/threads/main.go) •
+[Channels](conc/chan/main.go) •
+[Channel synchronization](conc/chan-sync/main.go) •
+[Channel buffering](conc/chan-buffering/main.go) •
+[Channel timeout](conc/chan-timeout/main.go) •
+[Non-blocking channels](conc/chan-non-blocking/main.go) •
+[Closing channels](conc/chan-close/main.go) •
+[Worker pools](conc/worker-pool/main.go) •
+[Worker pools w/channels](conc/chan-pool/main.go) •
+[Mutexes](conc/mutexes/main.go) •
+[Atomic counters](conc/atomic-counters/main.go)
 
 ## Standard library
 
