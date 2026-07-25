@@ -58,15 +58,19 @@ This repo contains small examples that show individual [language](#language), [c
 [Number parsing](stdlib/strconv/main.go) •
 [Sorting](stdlib/sort/main.go) •
 [Custom sort](stdlib/sort-func/main.go) •
+[JSON](stdlib/json/main.go) •
 [Reading files](stdlib/file-read/main.go) •
 [Writing files](stdlib/file-write/main.go) •
 [Scanning](stdlib/scanners/main.go) •
 [File paths](stdlib/file-paths/main.go) •
 [Directories](stdlib/file-dirs/main.go) •
 [Temp files](stdlib/file-temp/main.go) •
+[Testing](stdlib/testing/test/app.go) •
+[Benchmarking](stdlib/testing/bench/app.go)
 [Command line](stdlib/flags/main.go) •
 [Env variables](stdlib/env/main.go) •
 [Logging](stdlib/logging/main.go) •
+[TCP server](stdlib/net/main.go) •
 [Exit](stdlib/exit/main.go)
 
 ## Apps
