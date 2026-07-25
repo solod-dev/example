@@ -2,7 +2,7 @@
 
 A hands-on introduction to [Solod](https://github.com/solod-dev/solod) (So) — a subset of Go that translates to C.
 
-This repo contains small examples that show individual [language](#language), [concurrency](#concurrency), [safety](#safety), and [stdlib](#standard-library) features, as well as larger [apps](#apps) that demonstrate how everything fits together.
+This repo contains small examples that show individual [language](#language), [concurrency](#concurrency), [stdlib](#standard-library), and [safety](#safety) features, as well as larger [apps](#apps) that demonstrate how everything fits together.
 
 ## Language
 
@@ -44,14 +44,6 @@ This repo contains small examples that show individual [language](#language), [c
 [Mutexes](conc/mutexes/main.go) •
 [Atomic counters](conc/atomic-counters/main.go)
 
-## Safety
-
-[Dangling pointer](safety/dangling-pointer/main.go) •
-[Divide-by-zero](safety/divide-by-zero/main.go) •
-[Memory leak](safety/memory-leak/main.go) •
-[Nil dereference](safety/nil-deref/main.go) •
-[Panic mode](safety/panic-mode/main.go)
-
 ## Standard library
 
 [Memory](stdlib/memory/main.go) •
@@ -80,6 +72,14 @@ This repo contains small examples that show individual [language](#language), [c
 [Logging](stdlib/logging/main.go) •
 [TCP server](stdlib/net/main.go) •
 [Exit](stdlib/exit/main.go)
+
+## Safety
+
+[Dangling pointer](safety/dangling-pointer/main.go) •
+[Divide-by-zero](safety/divide-by-zero/main.go) •
+[Memory leak](safety/memory-leak/main.go) •
+[Nil dereference](safety/nil-deref/main.go) •
+[Panic mode](safety/panic-mode/main.go)
 
 ## Apps
 
