@@ -1,5 +1,10 @@
 // A simple key-value store backed by an SQLite database.
-// Run with `LDFLAGS="-lsqlite3" so run <args>`.
+//
+// Usage example:
+//
+//	so run apps/sqlmap -op set -key name -val alice
+//	so run apps/sqlmap -op get -key name
+//	so run apps/sqlmap -op del -key name
 package main
 
 import (

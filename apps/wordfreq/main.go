@@ -1,5 +1,9 @@
 // Count the frequency of each word in a text file
 // and print the top N most common words.
+//
+// Usage example:
+//
+//	so run apps/wordfreq -top 5 data/jenny.txt
 package main
 
 import (

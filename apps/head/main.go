@@ -1,4 +1,8 @@
 // head - display first lines of a file.
+//
+// Usage example:
+//
+//	so run apps/head -n 5 data/rains.txt
 package main
 
 import (

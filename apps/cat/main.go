@@ -1,4 +1,8 @@
 // cat - concatenate and print files.
+//
+// Usage example:
+//
+//	so run apps/cat data/hello.txt
 package main
 
 import (

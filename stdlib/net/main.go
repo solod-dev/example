@@ -1,5 +1,12 @@
 // The `so/net` package provides the tools we need
 // to easily build TCP socket servers.
+//
+// After you run this server, you can connect to it using `telnet`:
+//
+//	telnet localhost 8090
+//
+// Type a line of text and press Enter. The server will respond with
+// the same text in uppercase, prefixed with "ACK:".
 package main
 
 import (
@@ -26,7 +33,7 @@ func main() {
 	// Close the listener to free the port when the application exits.
 	defer listener.Close()
 
-	buf := make([]byte, fmt.BufSize)
+	buf := make([]byte, 1024)
 	println("Server listening on", laddr.String(buf))
 
 	// Loop indefinitely to accept new client connections.
@@ -78,7 +85,7 @@ func handleConnection(arg any) any {
 	// demonstrating two-way communication.
 	ackMsg := strings.ToUpper(mem.System, strings.TrimSpace(message))
 	defer mem.FreeString(mem.System, ackMsg)
-	buf := fmt.NewBuffer(fmt.BufSize)
+	buf := make([]byte, 1024)
 	response := fmt.Sprintf(buf, "ACK: %s\n", ackMsg)
 	_, err = conn.Write([]byte(response))
 	if err != nil {

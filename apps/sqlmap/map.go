@@ -27,11 +27,6 @@ type SQLMap struct {
 	db *sqlite3
 }
 
-type SQLMapResult struct {
-	val SQLMap
-	err error
-}
-
 // NewSQLMap creates a new SQLMap using the provided connection string.
 // It opens a connection to the SQLite database and creates the underlying
 // key-value table if it does not already exist.

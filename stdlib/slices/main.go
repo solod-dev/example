@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// slices.Make allocates a slice on the heap.
-	// The first argument is an allocator (nil uses the system allocator).
+	// The first argument is an allocator.
 	s := slices.Make[int](mem.System, 5)
 	defer slices.Free(mem.System, s)
 	for i := range s {

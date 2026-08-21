@@ -1,5 +1,9 @@
 // TCP client that connects to localhost:8080
 // and sends a message, then prints the response.
+//
+// Usage example:
+//
+//	so run apps/echo-client hello
 package main
 
 import (

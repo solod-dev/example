@@ -10,7 +10,7 @@
 // function that runs the benchmarks.
 //
 // Do not use the `_test.go` suffix for benchmark files.
-package main
+package app_bench
 
 import (
 	"app"

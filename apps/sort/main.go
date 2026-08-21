@@ -1,4 +1,8 @@
 // sort - sort text files by lines.
+//
+// Usage example:
+//
+//	so run apps/sort -k 2 -t , data/people.csv
 package main
 
 import (

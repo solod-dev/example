@@ -5,7 +5,10 @@
 // maps from the `so/maps` package.
 package main
 
-import "solod.dev/so/maps"
+import (
+	"solod.dev/so/maps"
+	"solod.dev/so/mem"
+)
 
 func main() {
 	// To create a map, use the `make` builtin:
@@ -46,7 +49,7 @@ func main() {
 
 	// Use the so/maps package for heap-allocated maps
 	// that can grow and shrink dynamically.
-	mapa := maps.New[string, int](nil, 0)
+	mapa := maps.New[string, int](mem.System, 0)
 	defer mapa.Free() // remember to free heap-allocated maps
 	mapa.Set("abc", 11)
 	mapa.Set("def", 22)

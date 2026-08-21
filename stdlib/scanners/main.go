@@ -2,8 +2,12 @@
 // processes it, and then prints some derived result to stdout.
 // grep and sed are common line filters.
 //
-// Here's an example line filter in that writes a
-// capitalized version of all input text.
+// Here's an example line filter that writes
+// a capitalized version of all input text.
+//
+// Usage example:
+//
+//	echo 'hello world' | so run stdlib/scanners
 package main
 
 import (

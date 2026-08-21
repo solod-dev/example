@@ -1,4 +1,8 @@
 // uniq - filter out repeated lines in a file.
+//
+// Usage example:
+//
+//	so run apps/uniq data/fruits.txt
 package main
 
 import (

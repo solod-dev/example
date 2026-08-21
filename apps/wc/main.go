@@ -1,4 +1,8 @@
 // wc - word, line, character, and byte count.
+//
+// Usage example:
+//
+//	so run apps/wc -w data/jenny.txt
 package main
 
 import (

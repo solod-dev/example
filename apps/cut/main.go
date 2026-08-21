@@ -1,4 +1,8 @@
 // cut – cut out selected portions of each line of a file.
+//
+// Usage example:
+//
+//	so run apps/cut -f 1,3 -d , data/people.csv
 package main
 
 import (

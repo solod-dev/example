@@ -10,7 +10,7 @@
 // function that runs the tests.
 //
 // Do not use the `_test.go` suffix for test files.
-package main
+package app_test
 
 import (
 	"app"
@@ -27,7 +27,7 @@ func TestIntMinBasic(t *testing.T) {
 		// t.Error reports a test failure but continue executing the test.
 		// t.Fatal reports a test failure and must be followed by a return
 		// statement to stop executing the test.
-		buf := fmt.NewBuffer(fmt.BufSize)
+		buf := make([]byte, 64)
 		msg := fmt.Sprintf(buf, "IntMin(2, -2) = %d, want -2", ans)
 		t.Error(msg)
 	}
@@ -50,7 +50,7 @@ func TestIntMinTableDriven(t *testing.T) {
 		{-1, 0, -1},
 	}
 
-	buf := fmt.NewBuffer(fmt.BufSize)
+	buf := make([]byte, 64)
 	for _, tt := range tests {
 		ans := app.IntMin(tt.a, tt.b)
 		if ans != tt.want {

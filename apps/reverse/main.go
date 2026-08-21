@@ -1,4 +1,8 @@
-// Read a file and print its lines in reverse order (byte-wise).
+// Read a file and print each line reversed (byte-wise).
+//
+// Usage example:
+//
+//	so run apps/reverse data/fruits.txt
 package main
 
 import (

@@ -78,10 +78,10 @@ func readParts(fpath string) {
 		// The `bufio` package provides a buffered reader,
 		// which makes small reads more efficient.
 		r := bufio.NewReader(mem.System, &f)
-		defer r.Free()
 		data, err := r.Peek(5)
 		check(err)
 		fmt.Printf("5 bytes: %s\n", string(data))
+		r.Free()
 	}
 }
 

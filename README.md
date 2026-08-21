@@ -107,7 +107,14 @@ Coreutils:
 
 ## Running the code
 
-To run a specific example locally, use the `so run` command. For example:
+Install the latest versions of the So compiler and standard library:
+
+```text
+go install solod.dev/cmd/so@6118636840f7
+go get solod.dev@6118636840f7
+```
+
+Run a specific example locally with the `so run` command:
 
 ```text
 so run lang/05-for
@@ -119,7 +126,7 @@ so run apps/head -n 4 data/jenny.txt
 
 You'll need to have a C compiler installed and available as `cc`, or you can set a custom compiler by using the `CC` environment variable.
 
-To see the generated C code, use the `so translate` command. For example:
+To see the generated C code, use the `so translate` command:
 
 ```text
 so translate -o lang/05-for/generated lang/05-for

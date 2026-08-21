@@ -3,6 +3,7 @@ package main
 import "solod.dev/so/c"
 
 //so:include <sqlite3.h>
+//so:link sqlite3
 
 //so:extern SQLITE_OK
 const sqliteOK = 0

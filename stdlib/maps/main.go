@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// maps.New creates a new map with a given initial capacity.
-	// The first argument is an allocator (nil uses the system allocator).
+	// The first argument is an allocator.
 	m := maps.New[string, int](mem.System, 8)
 	defer m.Free()
 

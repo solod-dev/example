@@ -1,5 +1,9 @@
 // TCP server that listens on localhost:8080
 // and echoes back any message it receives.
+//
+// Usage example:
+//
+//	so run apps/echo-server
 package main
 
 import (
