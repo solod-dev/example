@@ -2,7 +2,7 @@
 
 A hands-on introduction to [Solod](https://github.com/solod-dev/solod) (So) — a subset of Go that translates to C.
 
-This repo contains small examples that show individual [language](#language), [concurrency](#concurrency), [stdlib](#standard-library), and [safety](#safety) features, as well as larger [apps](#apps) that demonstrate how everything fits together.
+This repo contains small examples that show individual [language](#language), [concurrency](#concurrency), [stdlib](#standard-library), and [safety](#safety) features, as well as [sample apps](#apps) and [C libraries](#c-libraries) interop that demonstrate how everything fits together.
 
 ## Language
 
@@ -93,25 +93,33 @@ Coreutils:
 
 [Count word frequencies](apps/wordfreq/main.go) by [serge-hulne](https://github.com/serge-hulne)
 
-[Curl interop](apps/curl/main.go)
-
 [DuckDB shell](https://github.com/lmangani/soloduck) by [Lorenzo Mangani](https://github.com/lmangani)
 
 [FreeSWITCH module](https://github.com/rts-cn/mod_solod) by [seven1240](https://github.com/seven1240)
 
-[Key-value store](apps/sqlmap/main.go) with SQLite interop
-
 [Reverse lines in file](apps/reverse/main.go)
 
-[TCP echo server](apps/echo-server/main.go) and [client](apps/echo-client/main.go).
+[TCP echo server](apps/echo-server/main.go) and [client](apps/echo-client/main.go)
+
+## C libraries
+
+[Bouncing ball](https://github.com/solod-dev/raylib/blob/main/example/vector/main.go) animation with Raylib.
+
+[Hashing](https://github.com/solod-dev/sodium/blob/main/example/hash/main.go) with Sodium.
+
+[HTTP calls](apps/curl/main.go) with curl.
+
+[Key-value store](https://github.com/solod-dev/sqlite/blob/main/example/kvstore/main.go) backed by SQLite.
+
+[TCP echo server](https://github.com/solod-dev/uv/blob/main/example/echo/main.go) using libuv.
 
 ## Running the code
 
 Install the latest versions of the So compiler and standard library:
 
 ```text
-go install solod.dev/cmd/so@6118636840f7
-go get solod.dev@6118636840f7
+go install solod.dev/cmd/so@706286e46712
+go get solod.dev@706286e46712
 ```
 
 Run a specific example locally with the `so run` command:
