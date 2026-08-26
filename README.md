@@ -97,6 +97,8 @@ Coreutils:
 
 [FreeSWITCH module](https://github.com/rts-cn/mod_solod) by [seven1240](https://github.com/seven1240)
 
+[IP address encryption and obfuscation](https://github.com/jedisct1/go-ipcrypt/tree/main/so) by [Frank Denis](https://github.com/jedisct1)
+
 [Reverse lines in file](apps/reverse/main.go)
 
 [TCP echo server](apps/echo-server/main.go) and [client](apps/echo-client/main.go)
